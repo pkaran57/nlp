@@ -117,13 +117,39 @@ if __name__ == '__main__':
     models = ["word2vec-google-news-300", 'glove-twitter-200']
 
     for model in models:
+        print('\nModel = {}\n'.format(model))
+
         vector_embeddings = load_embedding_model(model)
-        M, word2ind = get_matrix_of_vectors(vector_embeddings)
+        # M, word2ind = get_matrix_of_vectors(vector_embeddings)
+        #
+        # n_components = 2
+        # M_reduced = reduce_to_k_dim(M, k=n_components)
+        # assert M_reduced.shape[1] == n_components, "Expected # of columns in reduced vector metrics to be {} but was {}".format(n_components, M_reduced.shape[1])
+        #
+        # plot_embeddings(M_reduced, word2ind, ['portland', 'pacific', 'forest', 'ocean', 'city', 'food', 'green', 'weird', 'cool', 'oregon'], model)
+        #
+        # # Words with Multiple Meanings
+        # for word in ['arms', 'once', 'subject', 'key']:
+        #     print('Words that are most similar to word "{}" = {}'.format(word, vector_embeddings.most_similar(word)))
+        #
+        # # Synonyms & Antonyms
+        # for word_set in [('happy', 'excited', 'sad'), ('long', 'lengthy', 'short')]:
+        #     w1, w2, w3 = word_set
+        #     distance_between_antonyms = vector_embeddings.distance_between_antonyms(w1, w3)
+        #     distance_between_synonyms = vector_embeddings.distance_between_antonyms(w1, w2)
+        #     if distance_between_antonyms < distance_between_synonyms:
+        #         print('Antonyms ({}, {}) are closer [distance = {}] than synonyms ({}, {}) [distance = {}]'.format(w1, w3, distance_between_antonyms, w1, w2,
+        #                                                                                                            distance_between_synonyms))
 
-        n_components = 2
-        M_reduced = reduce_to_k_dim(M, k=n_components)
-        assert M_reduced.shape[1] == n_components, "Expected # of columns in reduced vector metrics to be {} but was {}".format(n_components, M_reduced.shape[1])
+        # analogies
+        # if 'twitter' not in model:
+        #     for word_set in [('Italy', 'Rome', 'Germany'), ('Recession', 'Poor', 'Boom')]:
+        #         a1, b1, a2 = word_set
+        #         print('Analogies {}:{}, {}:\n{}'.format(a1, b1, a2, (vector_embeddings.most_similar(positive=[a2, b1], negative=[a1]))))
 
-        plot_embeddings(M_reduced, word2ind, ['portland', 'pacific', 'forest', 'ocean', 'city', 'food', 'green', 'weird', 'cool', 'oregon'], model)
+        # biases
+        for word_set in [('woman', 'doctor', 'man'), ('man', 'doctor', 'woman'), ('caucasian', 'police', 'black'), ('black', 'police', 'caucasian')]:
+            a1, b1, a2 = word_set
+            print('Analogies {}:{}, {}:\n{}'.format(a1, b1, a2, (vector_embeddings.most_similar(positive=[a2, b1], negative=[a1]))))
 
-    print('test')
+print('test')
