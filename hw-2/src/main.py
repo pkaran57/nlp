@@ -12,7 +12,7 @@ from definitions import OUTPUT_DIR
 np.random.seed(0)
 random.seed(0)
 
-logging.basicConfig(format="'%(asctime)s' %(name)s : %(message)s'", level=logging.DEBUG)
+logging.basicConfig(format="'%(asctime)s' %(name)s : %(message)s'", level=logging.INFO)
 logger = logging.getLogger('main')
 
 
@@ -135,8 +135,8 @@ if __name__ == '__main__':
         # Synonyms & Antonyms
         for word_set in [('happy', 'excited', 'sad'), ('long', 'lengthy', 'short')]:
             w1, w2, w3 = word_set
-            distance_between_antonyms = vector_embeddings.distance_between_antonyms(w1, w3)
-            distance_between_synonyms = vector_embeddings.distance_between_antonyms(w1, w2)
+            distance_between_antonyms = vector_embeddings.distance(w1, w3)
+            distance_between_synonyms = vector_embeddings.distance(w1, w2)
             if distance_between_antonyms < distance_between_synonyms:
                 print('Antonyms ({}, {}) are closer [distance = {}] than synonyms ({}, {}) [distance = {}]'.format(w1, w3, distance_between_antonyms, w1, w2,
                                                                                                                    distance_between_synonyms))
