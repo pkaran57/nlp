@@ -147,12 +147,12 @@ if __name__ == '__main__':
                 a1, b1, a2 = word_set
                 print('Analogies {}:{}, {}:\n{}'.format(a1, b1, a2, (vector_embeddings.most_similar(positive=[a2, b1], negative=[a1]))))
 
-        # biases
-        for word_set in [('woman', 'doctor', 'man'), ('man', 'doctor', 'woman'),
-                         ('caucasian', 'police officer', 'black'), ('black', 'police officer', 'caucasian'),
-                         ('woman', 'computer programmer', 'man'), ('man', 'computer programmer', 'woman'),
-                         ('woman', 'resume', 'man'), ('man', 'resume', 'woman')]:
-            a1, b1, a2 = word_set
-            print('Analogies {}:{}, {}:\n{}'.format(a1, b1, a2, (vector_embeddings.most_similar(positive=[a2, b1], negative=[a1]))))
+            # biases
+            for word_set in [('woman', 'doctor', 'man'), ('man', 'doctor', 'woman'),
+                             ('caucasian', 'officer', 'black'), ('black', 'officer', 'caucasian'),
+                             ('woman', 'computer_programmer', 'man'), ('man', 'computer_programmer', 'woman'),
+                             ('woman', 'resume', 'man'), ('man', 'resume', 'woman')]:
+                a1, b1, a2 = word_set
+                print('Analogies {}:{}, {}:\n{}'.format(a1, b1, a2, (vector_embeddings.most_similar(positive=[a2, b1], negative=[a1]))))
 
 print('test')
