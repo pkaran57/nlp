@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "hw-3-pos-tagging"
+version = "0.0.0"
+description = "HW 3"
+authors = ["Karan Patel <karanpatel4567@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+nltk = "*"
+jupyterlab = "*"
+
+[tool.poetry.dev-dependencies]
+pylint = "*"
+black = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
