@@ -9,6 +9,7 @@ python = "^3.9"
 nltk = "*"
 jupyterlab = "*"
 tqdm = "^4.58.0"
+tabulate = "^0.8.9"
 
 [tool.poetry.dev-dependencies]
 pylint = "*"
